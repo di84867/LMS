@@ -1,4 +1,4 @@
-const mongoose=require('mongoose');
+const mongoose=require("mongoose")
 
 mongoose.connect("mongodb://localhost:27017/LMS")
 .then(() => {
@@ -8,18 +8,18 @@ mongoose.connect("mongodb://localhost:27017/LMS")
     console.log("Error connecting to MongoDB");
 })
 
-const userSchema=new mongoose.Schema({
-    ID: {
+const LogInSchema=new mongoose.Schema({
+    ID:{
         type:String,
         required:true
     },
-    Password:       {
+    password:{
         type:String,
         required:true
     }
 })
-const user = mongoose.model('user', userSchema);
+const user = mongoose.model("user", LogInSchema);
 
-const collection=new mongoose.model("Collection1",userSchema)
+const collection=new mongoose.model("Collection1", LogInSchema)
 
 module.exports=collection
